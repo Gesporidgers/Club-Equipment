@@ -10,8 +10,19 @@ namespace Club_Equipment
 
 			app.Run(async (context) =>
 			{
+				var path = context.Request.Path;
+				string fullpth = "html/" + path + ".html";
 				context.Response.ContentType = "text/html";
-				await context.Response.SendFileAsync("html/index.html");
+				if (path == "/")
+				{
+					await context.Response.SendFileAsync("html/index.html");
+				}
+				else if (Path.Exists(fullpth))
+				{
+					await context.Response.SendFileAsync(fullpth);
+				}
+				
+				
 			});
 
 			app.Run();

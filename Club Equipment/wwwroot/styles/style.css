@@ -1,0 +1,23 @@
+@charset "utf-8";
+body {
+        background-image: url(/images/back.jpg);
+	font-family:"Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif"
+        }
+
+        header {
+            color: white;
+            padding: 4px 7px 4px 4px;
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            text-align: center
+        }
+
+        hr{
+            border:1.5px double white;
+        }
+
+        p {
+            font-size: 16px;
+            color: white;
+			font: "Gill Sans MT";
+        }
