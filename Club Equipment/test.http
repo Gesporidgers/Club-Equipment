@@ -1,0 +1,13 @@
+@Database_HostAddress = https://localhost:7180
+
+GET {{Database_HostAddress}}/api/LDevices/
+Accept: application/json
+###
+POST {{Database_HostAddress}}/api/LDevices
+Content-Type: application/json
+
+{
+    "id": 1,
+    "name": "DIAlighting bar 24-15",
+    "quantity" : 4
+ }

@@ -1,3 +1,7 @@
+using Elfie.Serialization;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 namespace Club_Equipment
 {
 	public class Program
@@ -5,8 +9,12 @@ namespace Club_Equipment
 		public static void Main(string[] args)
 		{
 			var builder = WebApplication.CreateBuilder(args);
+			builder.Services.AddControllers();
+			builder.Services.AddDbContext<LD_context>(options =>options.UseSqlite("Data Source = LD.db"));
+			builder.Services.AddEndpointsApiExplorer();
 			var app = builder.Build();
 			app.UseStaticFiles();
+			app.MapControllers();
 
 			app.Run(async (context) =>
 			{
@@ -22,7 +30,7 @@ namespace Club_Equipment
 					await context.Response.SendFileAsync(fullpth);
 				}
 				
-				
+
 			});
 
 			app.Run();
